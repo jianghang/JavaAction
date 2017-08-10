@@ -50,4 +50,14 @@ public class Property {
     public void setPriceLevel(Integer priceLevel) {
         this.priceLevel = priceLevel;
     }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "name='" + name + '\'' +
+                ", distance=" + distance +
+                ", sales=" + sales +
+                ", priceLevel=" + priceLevel +
+                '}';
+    }
 }
