@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Export-Package: org.apache.axis2.transport.local;uses:="org.apache.axi
+ s2.description,org.apache.axiom.soap,org.apache.axis2.addressing,org.
+ apache.axis2,org.apache.commons.logging,org.apache.axis2.transport,or
+ g.apache.axis2.engine,org.apache.axis2.context,org.apache.axis2.handl
+ ers,org.apache.axiom.om,org.apache.axis2.transport.http,org.apache.ax
+ is2.client,org.apache.axiom.om.impl.builder,org.apache.axis2.util,jav
+ ax.xml.stream,org.apache.axis2.builder"
+Built-By: sagara
+Tool: Bnd-0.0.357
+Bundle-Name: axis2-transport-local
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: Apache Software Foundation
+Build-Jdk: 1.6.0_22
+Bundle-Version: 1.6.2
+Bnd-LastModified: 1334664145701
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Description: This inclues all the available transports in Axis2
+Bundle-SymbolicName: axis2-transport-local
+Bundle-DocURL: http://www.apache.org/
+Import-Package: javax.xml.stream;version="1.0",org.apache.axiom.om,org
+ .apache.axiom.om.impl.builder,org.apache.axiom.soap,org.apache.axis2,
+ org.apache.axis2.addressing,org.apache.axis2.builder,org.apache.axis2
+ .client,org.apache.axis2.context,org.apache.axis2.description,org.apa
+ che.axis2.engine,org.apache.axis2.handlers,org.apache.axis2.transport
+ ,org.apache.axis2.transport.http,org.apache.axis2.transport.local,org
+ .apache.axis2.util,org.apache.commons.logging
+
