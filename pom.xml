@@ -16,6 +16,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_2.11</artifactId>
+            <version>2.3.7</version>
+        </dependency>
+
+        <dependency>
             <groupId>SS_WsdlParser</groupId>
             <artifactId>SS_WsdlParser</artifactId>
             <version>0.0.1-SNAPSHOT</version>
