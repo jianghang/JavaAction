@@ -21,7 +21,7 @@ public class SizeAnnotationProcessor {
         userInfo.setCreateTime("2017");
 
         UserInfo info  = new UserInfo();
-        info.setName("hang");
+        info.setName("h");
         info.setAge("11");
         info.setPhoneNumber("123456789");
 
@@ -45,11 +45,13 @@ public class SizeAnnotationProcessor {
                 if(size == null) continue;
 
                 Integer max = size.max();
+                Integer min = size.min();
+                System.out.println("min: " + min);
                 f.setAccessible(true);
                 String value = (String) f.get(t);
                 Integer len = value == null ? 0 : value.length();
                 System.out.println(value);
-                if(len > max){
+                if(len > max || len < min){
                     list.add(t);
                     break;
                 }
