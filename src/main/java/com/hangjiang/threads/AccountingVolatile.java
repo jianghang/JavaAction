@@ -3,8 +3,8 @@ package com.hangjiang.threads;
 /**
  * Created by jianghang on 2017/11/20.
  */
-public class AccountingVol implements Runnable{
-    static AccountingVol instance = new AccountingVol();
+public class AccountingVolatile implements Runnable{
+    static AccountingVolatile instance = new AccountingVolatile();
     static volatile int i = 0;
 
     public synchronized void increase(){

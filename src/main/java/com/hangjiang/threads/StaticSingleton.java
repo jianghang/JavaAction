@@ -2,6 +2,7 @@ package com.hangjiang.threads;
 
 /**
  * Created by jianghang on 2017/11/27.
+ * 单例的写法，使用jvm
  */
 public class StaticSingleton {
     private StaticSingleton(){

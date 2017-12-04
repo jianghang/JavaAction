@@ -2,6 +2,7 @@ package com.hangjiang.threads;
 
 /**
  * Created by jianghang on 2017/11/15.
+ * 线程挂起不推荐使用
  */
 public class BadSuspend {
     public static Object u = new Object();

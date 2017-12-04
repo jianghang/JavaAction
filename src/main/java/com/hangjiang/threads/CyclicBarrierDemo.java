@@ -6,6 +6,7 @@ import java.util.concurrent.CyclicBarrier;
 
 /**
  * Created by jianghang on 2017/11/25.
+ * 循环栅栏的使用示例
  */
 public class CyclicBarrierDemo {
 
