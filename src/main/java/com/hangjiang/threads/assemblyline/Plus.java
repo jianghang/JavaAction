@@ -11,12 +11,18 @@ public class Plus implements Runnable{
 
     @Override
     public void run() {
-        while (true){
+        boolean isRun = true;
+        while (isRun){
             try {
                 Msg msg = blockingQueue.take();
                 msg.j = msg.i + msg.j;
+                Thread.sleep(200);
+                System.out.println(msg.j);
+
                 Multiply.blockingQueue.add(msg);
             } catch (InterruptedException e) {
+                System.out.println("Interrupted");
+                isRun = false;
                 e.printStackTrace();
             }
         }
