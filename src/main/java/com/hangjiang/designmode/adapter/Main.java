@@ -8,10 +8,12 @@ package com.hangjiang.designmode.adapter;
 public class Main {
 
     public static void main(String[] args){
+        //使用继承的是适配器
         Print print = new PringBanner("Hello");
         print.printWeak();
         print.printStrong();
 
+        //使用委托的适配器
         PrintTrust printTrust = new PrintBannerTrust("World");
         printTrust.printWeak();
         printTrust.printStrong();
