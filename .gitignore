@@ -28,3 +28,5 @@ hs_err_pid*
 /.idea/vcs.xml
 /.idea/libraries/algs4.xml
 /target/
+/JavaDoc/
+.DS_Store
