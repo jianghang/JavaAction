@@ -31,3 +31,5 @@ hs_err_pid*
 /JavaDoc/
 .DS_Store
 /welcome.html
+/DSL/DSL.iml
+/HotSwap/HotSwap.iml
