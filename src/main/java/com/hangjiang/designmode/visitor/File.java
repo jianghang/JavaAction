@@ -1,7 +1,5 @@
 package com.hangjiang.designmode.visitor;
 
-import java.util.Iterator;
-
 /**
  * Created by jianghang on 2018/1/2.
  */
