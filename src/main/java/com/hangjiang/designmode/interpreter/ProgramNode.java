@@ -1,0 +1,20 @@
+package com.hangjiang.designmode.interpreter;
+
+/**
+ * Created by jianghang on 2018/1/22.
+ * <program> ::= program <command list>
+ */
+public class ProgramNode extends Node{
+
+    private Node commandListNode;
+
+    @Override
+    public void parse(Context context) throws ParseException {
+
+    }
+
+    @Override
+    public String toString() {
+        return "[program " + commandListNode + "]";
+    }
+}
