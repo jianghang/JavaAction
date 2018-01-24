@@ -1,4 +1,4 @@
-// Generated from /Users/jianghang/IdeaProjects/JavaAction/DSL/src/main/antlr/Expr.g4 by ANTLR 4.7
+// Generated from /Users/jianghang/IdeaProjects/JavaAction/DSL/src/main/antlr/expr/Expr.g4 by ANTLR 4.7
 package com.hangjiang.gen.expr;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
