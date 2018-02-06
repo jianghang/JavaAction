@@ -4,16 +4,22 @@ import com.hangjiang.lexer.Lexer;
 import com.hangjiang.lexer.Token;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jianghang on 2018/1/28.
  */
 public class Parser {
+
+    public static final int FAILED = -1;
+
     private Lexer input;
     private List<Integer> markers;
     private List<Token> lookahead;
     private int p = 0;
+    public Map<Integer,Integer> list_memo = new HashMap<>();
 
     public Parser(Lexer input){
         this.input = input;
@@ -26,8 +32,13 @@ public class Parser {
         if(p == lookahead.size() && !isSpeculating()){
             p = 0;
             lookahead.clear();
+            clearMemo();
         }
         sync(1);
+    }
+
+    private void clearMemo() {
+        list_memo.clear();
     }
 
     public boolean isSpeculating() {
@@ -78,5 +89,30 @@ public class Parser {
         }else {
             throw new MismatchedTokenException("expecting " + input.getTokenName(x) + " found " + LT(1));
         }
+    }
+
+    public boolean alreadyParsedRule(Map<Integer,Integer> memoization) throws PreviousParseFailedException {
+        Integer memoI = memoization.get(index());
+        if(memoI == null){
+            return false;
+        }
+        int memo = memoI;
+        System.out.println("parsed list before at index " + index() + "; skip ahead to token index " + memo
+                + ": " + lookahead.get(memo).text);
+        if(memo == FAILED){
+            throw new PreviousParseFailedException();
+        }
+        seek(memo);
+
+        return true;
+    }
+
+    public void memoize(Map<Integer,Integer> memoization,int startTokenIndex,boolean failed){
+        int stopTokenIndex = failed ? FAILED : index();
+        memoization.put(startTokenIndex,stopTokenIndex);
+    }
+
+    public int index(){
+        return p;
     }
 }

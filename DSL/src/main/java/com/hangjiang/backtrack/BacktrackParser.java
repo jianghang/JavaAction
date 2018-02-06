@@ -12,7 +12,7 @@ public class BacktrackParser extends Parser{
         super(input);
     }
 
-    public void stat() throws MismatchedTokenException {
+    public void stat() throws MismatchedTokenException, PreviousParseFailedException {
         if(speculate_stat_alt1()) {
             list();
             match(Lexer.EOF_TYPE);
@@ -30,11 +30,11 @@ public class BacktrackParser extends Parser{
         try {
             list();
             match(Lexer.EOF_TYPE);
-        } catch (MismatchedTokenException e) {
+        } catch (MismatchedTokenException | PreviousParseFailedException e) {
             success = false;
-            release();
             e.printStackTrace();
         }
+        release();
 
         return success;
     }
@@ -45,7 +45,7 @@ public class BacktrackParser extends Parser{
         try {
             assign();
             match(Lexer.EOF_TYPE);
-        } catch (MismatchedTokenException e) {
+        } catch (MismatchedTokenException | PreviousParseFailedException e) {
             success = false;
             e.printStackTrace();
         }
@@ -54,21 +54,40 @@ public class BacktrackParser extends Parser{
         return success;
     }
 
-    public void assign() throws MismatchedTokenException {
+    public void assign() throws MismatchedTokenException, PreviousParseFailedException {
         list();
         match(ListLexer.EQUALS);
         list();
     }
 
+    public void list() throws PreviousParseFailedException, MismatchedTokenException {
+        boolean failed = false;
+        int startTokenIndex = index();
+        if(isSpeculating() && alreadyParsedRule(list_memo)){
+            return;
+        }
+        try{
+            _list();
+        } catch (MismatchedTokenException e) {
+            failed = true;
+            throw e;
+        }finally {
+            if(isSpeculating()){
+                memoize(list_memo,startTokenIndex,failed);
+            }
+        }
+    }
+
     // list : '[' elements ']' ;
-    public void list() throws MismatchedTokenException {
+    public void _list() throws MismatchedTokenException, PreviousParseFailedException {
+        System.out.println("parse list rule at token index: " + index());
         match(ListLexer.LBRACK);
         elements();
         match(ListLexer.RBRACK);
     }
 
     // elements : element (',' element)* ;
-    private void elements() throws MismatchedTokenException {
+    private void elements() throws MismatchedTokenException, PreviousParseFailedException {
         element();
         while (LA(1) == ListLexer.COMMA){
             match(ListLexer.COMMA);
@@ -77,7 +96,7 @@ public class BacktrackParser extends Parser{
     }
 
     // element : NAME '=' NAME | NAME | list ;
-    public void element() throws MismatchedTokenException {
+    public void element() throws MismatchedTokenException, PreviousParseFailedException {
         if(LA(1) == ListLexer.NAME && LA(2) == ListLexer.EQUALS){
             match(ListLexer.NAME);
             match(ListLexer.EQUALS);
