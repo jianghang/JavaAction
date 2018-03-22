@@ -5,7 +5,6 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -18,7 +17,7 @@ public class Calc {
         String path = Calc.class.getResource("/").getPath();
         System.out.println(path);
         InputStream in = new FileInputStream(path + "t.expr");
-        ANTLRInputStream inputStream = new ANTLRInputStream(in);
+        ANTLRInputStream inputStream = new ANTLRInputStream("4+5\n");
         LabeledExprLexer lexer = new LabeledExprLexer(inputStream);
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
         LabeledExprParser parser = new LabeledExprParser(tokenStream);
