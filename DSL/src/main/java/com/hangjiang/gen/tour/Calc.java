@@ -1,6 +1,8 @@
 package com.hangjiang.gen.tour;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CodePointCharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -18,7 +20,9 @@ public class Calc {
         System.out.println(path);
         InputStream in = new FileInputStream(path + "t.expr");
         ANTLRInputStream inputStream = new ANTLRInputStream("4+5\n");
-        LabeledExprLexer lexer = new LabeledExprLexer(inputStream);
+
+        CodePointCharStream codePointCharStream = CharStreams.fromString("4+5\n");
+        LabeledExprLexer lexer = new LabeledExprLexer(codePointCharStream);
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
         LabeledExprParser parser = new LabeledExprParser(tokenStream);
         ParseTree tree = parser.prog();
