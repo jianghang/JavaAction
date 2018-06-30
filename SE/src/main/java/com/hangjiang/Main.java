@@ -1,14 +1,10 @@
 package com.hangjiang;
 
-import SS_Parser.SS_WsdlParser;
 import com.alibaba.fastjson.JSON;
-import com.google.common.base.Throwables;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 

@@ -40,13 +40,14 @@ public class Main {
         System.out.println("================================");
 
         template = "<Input name=\"$first(name)$\" type=\"$type$\">time > '$first(time)$' and time < '$first(rest(time))$' " +
-                "and time = '$first(rest(rest(time)))$' and time = '$first(rest(rest(rest(time))))$'</Input>";
+                "$if(first(rest(rest(time))))$ and time = '$first(rest(rest(time)))$' $endif$" +
+                "$if(first(rest(rest(rest(time)))))$ and time = '$first(rest(rest(rest(time))))$' $endif$</Input>";
         st = new ST(template,'$','$');
         st.add("name","Condition");
         st.add("type","string");
         st.add("time","2018");
         st.add("time","2019");
-        st.add("time","2020");
+        st.add("time","");
         st.add("time","2021");
         System.out.println(st.render());
     }
