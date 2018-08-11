@@ -1,6 +1,7 @@
 package com.hangjiang.java8.time;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by jianghang on 2017/8/31.
@@ -12,7 +13,10 @@ public class TimeDemo {
 //        LocalTimeDemo();
 //        LocalDateTimeDemo();
 
-        InstantDemo();
+//        InstantDemo();
+        String time = "2018-10-01";
+        LocalDateTime localDateTime = LocalDateTime.parse(time,DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println(localDateTime.toString());
     }
 
     private static void InstantDemo() {

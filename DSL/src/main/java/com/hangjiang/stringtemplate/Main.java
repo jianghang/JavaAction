@@ -49,6 +49,7 @@ public class Main {
         st.add("time","2019");
         st.add("time","");
         st.add("time","2021");
+        st.inspect();
         System.out.println(st.render());
     }
 }
