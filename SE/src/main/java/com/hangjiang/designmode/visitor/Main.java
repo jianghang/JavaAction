@@ -21,7 +21,7 @@ public class Main {
         tmpdir.add(new File("list.html",600));
         rootdir.accept(new ListVisitor());
 
-        System.out.println("");
+        System.out.println();
 
         FileFindVisitor findVisitor = new FileFindVisitor(".html");
         rootdir.accept(findVisitor);
