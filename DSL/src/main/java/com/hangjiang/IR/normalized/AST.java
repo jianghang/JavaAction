@@ -14,7 +14,6 @@ public class AST {      // Homogeneous AST node type
     List<AST> children; // normalized list of children
 
     public AST() {
-        ;
     } // for making nil-rooted nodes
 
     public AST(Token t) {
