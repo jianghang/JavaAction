@@ -1,10 +1,10 @@
-package com.hangjiang.enums.v3;
+package com.hangjiang.enums.multipath.v3;
 
-import com.hangjiang.enums.Competitor;
-import com.hangjiang.enums.Outcome;
-import com.hangjiang.enums.RoShamBo;
+import com.hangjiang.enums.multipath.Competitor;
+import com.hangjiang.enums.multipath.Outcome;
+import com.hangjiang.enums.multipath.RoShamBo;
 
-import static com.hangjiang.enums.Outcome.*;
+import static com.hangjiang.enums.multipath.Outcome.*;
 
 public enum RoShamBo3 implements Competitor<RoShamBo3> {
     PAPER {

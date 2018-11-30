@@ -1,8 +1,8 @@
-package com.hangjiang.enums.v4;
+package com.hangjiang.enums.multipath.v4;
 
-import com.hangjiang.enums.Competitor;
-import com.hangjiang.enums.Outcome;
-import com.hangjiang.enums.RoShamBo;
+import com.hangjiang.enums.multipath.Competitor;
+import com.hangjiang.enums.multipath.Outcome;
+import com.hangjiang.enums.multipath.RoShamBo;
 
 public enum RoShamBo4 implements Competitor<RoShamBo4> {
     ROCK {
@@ -22,8 +22,8 @@ public enum RoShamBo4 implements Competitor<RoShamBo4> {
     };
 
     Outcome compete(RoShamBo4 loser, RoShamBo4 opponent) {
-        return ((opponent == this) ? Outcome.DRAW
-                : ((opponent == loser) ? Outcome.WIN
+        return ((opponent == this) ? Outcome.DRAW :
+                ((opponent == loser) ? Outcome.WIN
                 : Outcome.LOSE));
     }
 

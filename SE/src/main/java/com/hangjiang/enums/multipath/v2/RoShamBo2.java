@@ -1,12 +1,13 @@
-package com.hangjiang.enums.v2;
+package com.hangjiang.enums.multipath.v2;
 
-import com.hangjiang.enums.Competitor;
-import com.hangjiang.enums.Outcome;
-import com.hangjiang.enums.RoShamBo;
+import com.hangjiang.enums.multipath.Competitor;
+import com.hangjiang.enums.multipath.Outcome;
+import com.hangjiang.enums.multipath.RoShamBo;
 
-import static com.hangjiang.enums.Outcome.*;
+import static com.hangjiang.enums.multipath.Outcome.*;
 
 public enum RoShamBo2 implements Competitor<RoShamBo2> {
+
     PAPER(DRAW, LOSE, WIN),
     SCISSORS(WIN, DRAW, LOSE),
     ROCK(LOSE, WIN, DRAW);

@@ -1,10 +1,10 @@
-package com.hangjiang.enums.v1;
+package com.hangjiang.enums.multipath.v1;
 
-import com.hangjiang.enums.Outcome;
+import com.hangjiang.enums.multipath.Outcome;
 
 import java.util.*;
 
-import static com.hangjiang.enums.Outcome.*;
+import static com.hangjiang.enums.multipath.Outcome.*;
 
 interface Item {
     Outcome compete(Item it);
@@ -83,7 +83,9 @@ class Rock implements Item {
 }
 
 public class RoShamBo1 {
+
     static final int SIZE = 20;
+
     private static Random rand = new Random(47);
 
     public static Item newItem() {
@@ -99,12 +101,12 @@ public class RoShamBo1 {
     }
 
     public static void match(Item a, Item b) {
-        System.out.println(
-                a + " vs. " + b + ": " + a.compete(b));
+        System.out.println(a + " vs. " + b + ": " + a.compete(b));
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < SIZE; i++)
+        for (int i = 0; i < SIZE; i++){
             match(newItem(), newItem());
+        }
     }
 }

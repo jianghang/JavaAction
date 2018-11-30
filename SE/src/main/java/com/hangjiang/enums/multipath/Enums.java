@@ -1,4 +1,4 @@
-package com.hangjiang.enums;
+package com.hangjiang.enums.multipath;
 
 import java.util.*;
 

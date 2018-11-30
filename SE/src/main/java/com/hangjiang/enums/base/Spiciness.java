@@ -1,6 +1,5 @@
-//: enumerated/Spiciness.java
-package enumerated;
+package com.hangjiang.enums.base;
 
 public enum Spiciness {
-  NOT, MILD, MEDIUM, HOT, FLAMING
-} ///:~
+    NOT, MILD, MEDIUM, HOT, FLAMING
+}

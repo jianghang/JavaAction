@@ -1,15 +1,14 @@
-package com.hangjiang.enums.v5;
+package com.hangjiang.enums.multipath.v5;
 
-import com.hangjiang.enums.Competitor;
-import com.hangjiang.enums.Outcome;
-import com.hangjiang.enums.RoShamBo;
+import com.hangjiang.enums.multipath.Competitor;
+import com.hangjiang.enums.multipath.Outcome;
+import com.hangjiang.enums.multipath.RoShamBo;
 
 import java.util.EnumMap;
 
-import static com.hangjiang.enums.Outcome.*;
+import static com.hangjiang.enums.multipath.Outcome.*;
 
 enum RoShamBo5 implements Competitor<RoShamBo5> {
-
     PAPER,
     SCISSORS,
     ROCK;
