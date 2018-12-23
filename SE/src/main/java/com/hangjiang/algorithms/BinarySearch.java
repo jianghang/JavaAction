@@ -1,8 +1,17 @@
 package com.hangjiang.algorithms;
 
+import edu.princeton.cs.algs4.StdIn;
+
 public class BinarySearch {
 
     public static void main(String[] args) {
+        while (StdIn.hasNextChar()){
+            String str = StdIn.readString();
+            if("".equals(str)){
+                break;
+            }
+            System.out.println(str);
+        }
         int[] data = new int[]{2,3,5,7,9,10};
         int seek = rank(5,data,0,data.length - 1);
         System.out.println(seek);
