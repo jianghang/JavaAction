@@ -19,10 +19,19 @@ public class InsertSerialIDMain {
                 " * Created by jianghang on 2018/3/22.\n" +
                 " */\n" +
                 "public class Demo {\n" +
-                "    void f(int x,String y){};\n" +
-                "    int[] g(/*no args*/){return null;}\n" +
-                "    List<Map<String,Integer>>[] h() {return null;}\n" +
-                "}\n";
+                "    void f(int x, String y) {\n" +
+                "    }\n" +
+                "\n" +
+                "    ;\n" +
+                "\n" +
+                "    int[] g(/*no args*/) {\n" +
+                "        return null;\n" +
+                "    }\n" +
+                "\n" +
+                "    List<Map<String, Integer>>[] h() {\n" +
+                "        return null;\n" +
+                "    }\n" +
+                "}";
         ANTLRInputStream antlrInputStream = new ANTLRInputStream(code);
         JavaLexer javaLexer = new JavaLexer(antlrInputStream);
         CommonTokenStream commonTokenStream = new CommonTokenStream(javaLexer);
