@@ -14,6 +14,11 @@ public class ExtractInterfaceListener extends JavaBaseListener{
     }
 
     @Override
+    public void enterPackageDeclaration(JavaParser.PackageDeclarationContext ctx) {
+        System.out.println(javaParser.getTokenStream().getText(ctx));
+    }
+
+    @Override
     public void enterImportDeclaration(JavaParser.ImportDeclarationContext ctx) {
         System.out.println(javaParser.getTokenStream().getText(ctx));
     }
@@ -36,6 +41,7 @@ public class ExtractInterfaceListener extends JavaBaseListener{
             type = tokenStream.getText(ctx.type());
         }
         String args = tokenStream.getText(ctx.formalParameters());
+        System.out.println("\t" + "@PostMapping(\"/" + ctx.Identifier() + "\"" + ")");
         System.out.println("\t" + type + " " + ctx.Identifier() + args + ";");
     }
 }

@@ -1,6 +1,8 @@
 package com.hangjiang.gen.tour;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
@@ -24,8 +26,9 @@ public class ExtractInterfaceTool {
                 "    int[] g(/*no args*/){return null;}\n" +
                 "    List<Map<String,Integer>>[] h() {return null;}\n" +
                 "}\n";
-        ANTLRInputStream inputStream = new ANTLRInputStream(code);
-        JavaLexer javaLexer = new JavaLexer(inputStream);
+//        ANTLRInputStream inputStream = new ANTLRInputStream(code);
+        CharStream charStream = CharStreams.fromString(code);
+        JavaLexer javaLexer = new JavaLexer(charStream);
         CommonTokenStream tokenStream = new CommonTokenStream(javaLexer);
 
         JavaParser javaParser = new JavaParser(tokenStream);
@@ -34,6 +37,6 @@ public class ExtractInterfaceTool {
         ParseTreeWalker walker = new ParseTreeWalker();
         ExtractInterfaceListener extractInterfaceListener = new ExtractInterfaceListener(javaParser);
 
-        walker.walk(extractInterfaceListener,tree);
+        walker.walk(extractInterfaceListener, tree);
     }
 }
